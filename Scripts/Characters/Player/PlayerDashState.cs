@@ -3,58 +3,45 @@ using RPGDEMO.Scripts.General;
 
 namespace RPGDEMO.Scripts.Characters.Player;
 
-public partial class PlayerDashState : Node
+public partial class PlayerDashState : PlayerState
 {
-    private Player _characterNode;
-
     [Export]
     private Timer _dashTimerNode;
 
-    [Export]
+    [Export(PropertyHint.Range, "0, 30, 1")]
     private float _speed = 12;
 
     public override void _Ready()
     {
-        _characterNode = GetOwner<Player>();
+        base._Ready();
         _dashTimerNode.Timeout += HandleDashTimeout;
-        SetPhysicsProcess(false);
     }
 
     public override void _PhysicsProcess(double delta)
     {
-        _characterNode.MoveAndSlide();
-        _characterNode.Flip();
+        CharacterNode.MoveAndSlide();
+        CharacterNode.Flip();
     }
 
-    public override void _Notification(int what)
+    protected override void EnterState()
     {
-        base._Notification(what);
-        if (what == 5001)
-        {
-            _characterNode.AnimPlayerNode.Play(GameConstants.ANIM_DASH);
-            _characterNode.Velocity = new(
-                _characterNode.Direction.X,
-                0,
-                _characterNode.Direction.Y
-            );
+        CharacterNode.AnimPlayerNode.Play(GameConstants.ANIM_DASH);
+        CharacterNode.Velocity = new(CharacterNode.Direction.X, 0, CharacterNode.Direction.Y);
 
-            _characterNode.Velocity = _characterNode.PlayerSpriteNode.FlipH
+        if (CharacterNode.Velocity == Vector3.Zero)
+        {
+            CharacterNode.Velocity = CharacterNode.PlayerSpriteNode.FlipH
                 ? Vector3.Left
                 : Vector3.Right;
+        }
 
-            _characterNode.Velocity *= _speed;
-            _dashTimerNode.Start();
-            SetPhysicsProcess(true);
-        }
-        else if (what == 5002)
-        {
-            SetPhysicsProcess(false);
-        }
+        CharacterNode.Velocity *= _speed;
+        _dashTimerNode.Start();
     }
 
     private void HandleDashTimeout()
     {
-        _characterNode.Velocity = Vector3.Zero;
-        _characterNode.StateMachineNode.SwitchState<PlayerIdleState>();
+        CharacterNode.Velocity = Vector3.Zero;
+        CharacterNode.StateMachineNode.SwitchState<PlayerIdleState>();
     }
 }

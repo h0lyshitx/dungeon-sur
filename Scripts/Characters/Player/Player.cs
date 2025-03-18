@@ -7,21 +7,30 @@ public partial class Player : CharacterBody3D
 {
     [ExportGroup("Required Nodes")]
     [Export]
-    public AnimationPlayer AnimPlayerNode;
+    public AnimationPlayer AnimPlayerNode { get; private set; }
 
     [Export]
-    public Sprite3D PlayerSpriteNode;
+    public Sprite3D PlayerSpriteNode { get; private set; }
 
     [Export]
-    public StateMachine StateMachineNode;
-
-    [Export]
-    public float Movespeed = 8;
+    public StateMachine StateMachineNode { get; private set; }
 
     public Vector2 Direction = new();
 
-    // public override void _Ready() { }
+    private const float Gravity = 1500f;
 
+    public override void _Ready() { }
+
+    public override void _PhysicsProcess(double delta)
+    {
+        Vector3 velocity = Velocity;
+        if (!IsOnFloor())
+        {
+            velocity.Y -= Gravity * (float)delta;
+        }
+        Velocity = velocity;
+        MoveAndSlide();
+    }
 
     public override void _Input(InputEvent @event)
     {

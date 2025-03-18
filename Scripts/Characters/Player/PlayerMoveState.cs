@@ -3,52 +3,36 @@ using RPGDEMO.Scripts.General;
 
 namespace RPGDEMO.Scripts.Characters.Player;
 
-public partial class PlayerMoveState : Node
+public partial class PlayerMoveState : PlayerState
 {
-    private Player _characterNode;
-
-    public override void _Ready()
-    {
-        _characterNode = GetOwner<Player>();
-        SetPhysicsProcess(false);
-        SetProcessInput(false);
-    }
+    [Export(PropertyHint.Range, "0, 20, 0.1")]
+    protected float Movespeed = 8;
 
     public override void _PhysicsProcess(double delta)
     {
-        if (_characterNode.Direction == Vector2.Zero)
+        if (CharacterNode.Direction == Vector2.Zero)
         {
-            _characterNode.StateMachineNode.SwitchState<PlayerIdleState>();
+            CharacterNode.Velocity = new Vector3(0, CharacterNode.Velocity.Y, 0); // leave y velocity for gravity
+            CharacterNode.StateMachineNode.SwitchState<PlayerIdleState>();
             return;
         }
 
-        _characterNode.Velocity = new(_characterNode.Direction.X, 0, _characterNode.Direction.Y);
-        _characterNode.Velocity *= _characterNode.Movespeed;
-        _characterNode.MoveAndSlide();
-        _characterNode.Flip();
+        CharacterNode.Velocity = new(CharacterNode.Direction.X, 0, CharacterNode.Direction.Y);
+        CharacterNode.Velocity *= Movespeed;
+        // CharacterNode.MoveAndSlide(); -> this is done in Player class
+        CharacterNode.Flip();
     }
 
     public override void _Input(InputEvent @event)
     {
         if (Input.IsActionJustPressed(GameConstants.INPUT_DASH))
         {
-            _characterNode.StateMachineNode.SwitchState<PlayerDashState>();
+            CharacterNode.StateMachineNode.SwitchState<PlayerDashState>();
         }
     }
 
-    public override void _Notification(int what)
+    protected override void EnterState()
     {
-        base._Notification(what);
-        if (what == 5001)
-        {
-            _characterNode.AnimPlayerNode.Play(GameConstants.ANIM_MOVE);
-            SetPhysicsProcess(true);
-            SetProcessInput(true);
-        }
-        else if (what == 5002)
-        {
-            SetPhysicsProcess(false);
-            SetProcessInput(false);
-        }
+        CharacterNode.AnimPlayerNode.Play(GameConstants.ANIM_MOVE);
     }
 }

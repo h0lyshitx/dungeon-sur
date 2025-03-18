@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://1ptpmqcr1dux"]
+[gd_scene load_steps=48 format=3 uid="uid://1ptpmqcr1dux"]
 
 [ext_resource type="Texture2D" uid="uid://c7wparfipsqpd" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_000.png" id="1_27cb7"]
 [ext_resource type="Script" uid="uid://mcxylr0jle8d" path="res://Scripts/Characters/Player/Player.cs" id="1_eiaiy"]
@@ -36,11 +36,31 @@
 [ext_resource type="Script" uid="uid://iureou4u8oqu" path="res://Scripts/Characters/Player/PlayerMoveState.cs" id="33_4yec0"]
 [ext_resource type="Texture2D" uid="uid://pvx4f4bk8qqs" path="res://Assets/Sprites/Characters/Player/Sliding/Sliding_001.png" id="33_e5xbx"]
 [ext_resource type="Texture2D" uid="uid://dne2trobutccx" path="res://Assets/Sprites/Characters/Player/Sliding/Sliding_002.png" id="34_8uivy"]
-[ext_resource type="Script" uid="uid://p82758ps87ch" path="res://Scripts/Characters/StateMachine.cs" id="34_me3gr"]
 [ext_resource type="Texture2D" uid="uid://i6dhpnt2ipy0" path="res://Assets/Sprites/Characters/Player/Sliding/Sliding_003.png" id="35_yfcdn"]
 [ext_resource type="Texture2D" uid="uid://7aaur70rdgba" path="res://Assets/Sprites/Characters/Player/Sliding/Sliding_004.png" id="36_68bc3"]
 [ext_resource type="Texture2D" uid="uid://ghrcacdp871c" path="res://Assets/Sprites/Characters/Player/Sliding/Sliding_005.png" id="37_mf3wh"]
+[ext_resource type="PackedScene" uid="uid://tev2m8ggyyfc" path="res://Scenes/state_machine.tscn" id="38_gs6v2"]
 [ext_resource type="Script" uid="uid://t8tgm1tsp538" path="res://Scripts/Characters/Player/PlayerDashState.cs" id="40_2qsty"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uvgfe"]
+radius = 0.488436
+height = 1.4838
+
+[sub_resource type="Animation" id="Animation_h8opa"]
+resource_name = "Dash"
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("32_uvgfe"), ExtResource("33_e5xbx"), ExtResource("34_8uivy"), ExtResource("35_yfcdn"), ExtResource("36_68bc3"), ExtResource("37_mf3wh")]
+}
 
 [sub_resource type="Animation" id="Animation_lyjr2"]
 resource_name = "idle"
@@ -91,22 +111,6 @@ tracks/0/keys = {
 "values": [ExtResource("1_27cb7")]
 }
 
-[sub_resource type="Animation" id="Animation_h8opa"]
-resource_name = "Dash"
-step = 0.166667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 0.833333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("32_uvgfe"), ExtResource("33_e5xbx"), ExtResource("34_8uivy"), ExtResource("35_yfcdn"), ExtResource("36_68bc3"), ExtResource("37_mf3wh")]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_siygm"]
 _data = {
 &"Dash": SubResource("Animation_h8opa"),
@@ -116,22 +120,30 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("AnimPlayerNode", "PlayerSpriteNode", "StateMachineNode")]
+collision_layer = 2
+collision_mask = 5
+floor_max_angle = 1.55334
+floor_snap_length = 0.2
 script = ExtResource("1_eiaiy")
 AnimPlayerNode = NodePath("AnimationPlayer")
 PlayerSpriteNode = NodePath("Sprite3D")
 StateMachineNode = NodePath("StateMachine")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
+pixel_size = 0.0025
 texture_filter = 0
 texture = ExtResource("1_27cb7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0331556, 0.0147786, 0)
+shape = SubResource("CapsuleShape3D_uvgfe")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_siygm")
 }
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("_currentState", "_states")]
-script = ExtResource("34_me3gr")
+[node name="StateMachine" parent="." node_paths=PackedStringArray("_currentState", "_states") instance=ExtResource("38_gs6v2")]
 _currentState = NodePath("IdleState")
 _states = [NodePath("IdleState"), NodePath("MoveState"), NodePath("DashState")]
 

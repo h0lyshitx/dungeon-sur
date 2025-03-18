@@ -1,4 +1,5 @@
 using Godot;
+using RPGDEMO.Scripts.General;
 
 namespace RPGDEMO.Scripts.Characters;
 
@@ -12,7 +13,7 @@ public partial class StateMachine : Node
 
     public override void _Ready()
     {
-        _currentState.Notification(5001);
+        _currentState.Notification(GameConstants.NOTIFICATION_ENTER_STATE);
     }
 
     public void SwitchState<T>()
@@ -29,8 +30,8 @@ public partial class StateMachine : Node
         if (newState == null)
             return;
 
-        _currentState.Notification(5002); // send notification to disable PhysicsProcess
+        _currentState.Notification(GameConstants.NOTIFICATION_EXIT_STATE); // send notification to disable something
         _currentState = newState;
-        _currentState.Notification(5001); // send notification to enable PhysicsProcess
+        _currentState.Notification(GameConstants.NOTIFICATION_ENTER_STATE); // send notification to enable something
     }
 }

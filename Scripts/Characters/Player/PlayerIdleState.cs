@@ -3,22 +3,13 @@ using RPGDEMO.Scripts.General;
 
 namespace RPGDEMO.Scripts.Characters.Player;
 
-public partial class PlayerIdleState : Node
+public partial class PlayerIdleState : PlayerState
 {
-    private Player _characterNode;
-
-    public override void _Ready()
-    {
-        _characterNode = GetOwner<Player>();
-        SetPhysicsProcess(false);
-        SetProcessInput(false);
-    }
-
     public override void _PhysicsProcess(double delta)
     {
-        if (_characterNode.Direction != Vector2.Zero)
+        if (CharacterNode.Direction != Vector2.Zero)
         {
-            _characterNode.StateMachineNode.SwitchState<PlayerMoveState>();
+            CharacterNode.StateMachineNode.SwitchState<PlayerMoveState>();
         }
     }
 
@@ -26,23 +17,12 @@ public partial class PlayerIdleState : Node
     {
         if (Input.IsActionJustPressed(GameConstants.INPUT_DASH))
         {
-            _characterNode.StateMachineNode.SwitchState<PlayerDashState>();
+            CharacterNode.StateMachineNode.SwitchState<PlayerDashState>();
         }
     }
 
-    public override void _Notification(int what)
+    protected override void EnterState()
     {
-        base._Notification(what);
-        if (what == 5001)
-        {
-            _characterNode.AnimPlayerNode.Play(GameConstants.ANIM_IDLE);
-            SetPhysicsProcess(true);
-            SetProcessInput(true);
-        }
-        else if (what == 5002)
-        {
-            SetPhysicsProcess(false);
-            SetProcessInput(false);
-        }
+        CharacterNode.AnimPlayerNode.Play(GameConstants.ANIM_IDLE);
     }
 }
