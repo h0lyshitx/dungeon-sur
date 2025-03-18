@@ -15,17 +15,13 @@ public partial class Player : CharacterBody3D
     [Export]
     public StateMachine StateMachineNode;
 
+    [Export]
+    public float Movespeed = 8;
+
     public Vector2 Direction = new();
 
     // public override void _Ready() { }
 
-    public override void _PhysicsProcess(double delta)
-    {
-        Velocity = new(Direction.X, 0, Direction.Y);
-        Velocity *= 5;
-        MoveAndSlide();
-        Flip();
-    }
 
     public override void _Input(InputEvent @event)
     {
@@ -37,7 +33,7 @@ public partial class Player : CharacterBody3D
         );
     }
 
-    private void Flip()
+    public void Flip()
     {
         bool isNotMovingHorizontally = Velocity.X == 0;
         if (isNotMovingHorizontally)

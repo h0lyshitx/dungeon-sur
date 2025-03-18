@@ -10,6 +10,8 @@ public partial class PlayerIdleState : Node
     public override void _Ready()
     {
         _characterNode = GetOwner<Player>();
+        SetPhysicsProcess(false);
+        SetProcessInput(false);
     }
 
     public override void _PhysicsProcess(double delta)
@@ -20,12 +22,27 @@ public partial class PlayerIdleState : Node
         }
     }
 
+    public override void _Input(InputEvent @event)
+    {
+        if (Input.IsActionJustPressed(GameConstants.INPUT_DASH))
+        {
+            _characterNode.StateMachineNode.SwitchState<PlayerDashState>();
+        }
+    }
+
     public override void _Notification(int what)
     {
         base._Notification(what);
         if (what == 5001)
         {
             _characterNode.AnimPlayerNode.Play(GameConstants.ANIM_IDLE);
+            SetPhysicsProcess(true);
+            SetProcessInput(true);
+        }
+        else if (what == 5002)
+        {
+            SetPhysicsProcess(false);
+            SetProcessInput(false);
         }
     }
 }

@@ -1,5 +1,6 @@
-using System;
 using Godot;
+
+namespace RPGDEMO.Scripts.Characters;
 
 public partial class StateMachine : Node
 {
@@ -28,7 +29,8 @@ public partial class StateMachine : Node
         if (newState == null)
             return;
 
+        _currentState.Notification(5002); // send notification to disable PhysicsProcess
         _currentState = newState;
-        _currentState.Notification(5001);
+        _currentState.Notification(5001); // send notification to enable PhysicsProcess
     }
 }

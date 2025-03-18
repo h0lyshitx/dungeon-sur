@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://1ptpmqcr1dux"]
+[gd_scene load_steps=47 format=3 uid="uid://1ptpmqcr1dux"]
 
 [ext_resource type="Texture2D" uid="uid://c7wparfipsqpd" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_000.png" id="1_27cb7"]
 [ext_resource type="Script" uid="uid://mcxylr0jle8d" path="res://Scripts/Characters/Player/Player.cs" id="1_eiaiy"]
@@ -32,8 +32,15 @@
 [ext_resource type="Texture2D" uid="uid://dk60pyo6soaqp" path="res://Assets/Sprites/Characters/Player/Running/Running_010.png" id="29_2iqoh"]
 [ext_resource type="Texture2D" uid="uid://cks8g11c0t8vn" path="res://Assets/Sprites/Characters/Player/Running/Running_011.png" id="30_gii1i"]
 [ext_resource type="Script" uid="uid://wu8qpxlbbbaw" path="res://Scripts/Characters/Player/PlayerIdleState.cs" id="32_cflke"]
+[ext_resource type="Texture2D" uid="uid://dyjyhxa3fyv8j" path="res://Assets/Sprites/Characters/Player/Sliding/Sliding_000.png" id="32_uvgfe"]
 [ext_resource type="Script" uid="uid://iureou4u8oqu" path="res://Scripts/Characters/Player/PlayerMoveState.cs" id="33_4yec0"]
+[ext_resource type="Texture2D" uid="uid://pvx4f4bk8qqs" path="res://Assets/Sprites/Characters/Player/Sliding/Sliding_001.png" id="33_e5xbx"]
+[ext_resource type="Texture2D" uid="uid://dne2trobutccx" path="res://Assets/Sprites/Characters/Player/Sliding/Sliding_002.png" id="34_8uivy"]
 [ext_resource type="Script" uid="uid://p82758ps87ch" path="res://Scripts/Characters/StateMachine.cs" id="34_me3gr"]
+[ext_resource type="Texture2D" uid="uid://i6dhpnt2ipy0" path="res://Assets/Sprites/Characters/Player/Sliding/Sliding_003.png" id="35_yfcdn"]
+[ext_resource type="Texture2D" uid="uid://7aaur70rdgba" path="res://Assets/Sprites/Characters/Player/Sliding/Sliding_004.png" id="36_68bc3"]
+[ext_resource type="Texture2D" uid="uid://ghrcacdp871c" path="res://Assets/Sprites/Characters/Player/Sliding/Sliding_005.png" id="37_mf3wh"]
+[ext_resource type="Script" uid="uid://t8tgm1tsp538" path="res://Scripts/Characters/Player/PlayerDashState.cs" id="40_2qsty"]
 
 [sub_resource type="Animation" id="Animation_lyjr2"]
 resource_name = "idle"
@@ -84,8 +91,25 @@ tracks/0/keys = {
 "values": [ExtResource("1_27cb7")]
 }
 
+[sub_resource type="Animation" id="Animation_h8opa"]
+resource_name = "Dash"
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("32_uvgfe"), ExtResource("33_e5xbx"), ExtResource("34_8uivy"), ExtResource("35_yfcdn"), ExtResource("36_68bc3"), ExtResource("37_mf3wh")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_siygm"]
 _data = {
+&"Dash": SubResource("Animation_h8opa"),
 &"Idle": SubResource("Animation_lyjr2"),
 &"Move": SubResource("Animation_7x37g"),
 &"RESET": SubResource("Animation_27cb7")
@@ -106,13 +130,21 @@ libraries = {
 &"": SubResource("AnimationLibrary_siygm")
 }
 
-[node name="IdleState" type="Node" parent="."]
-script = ExtResource("32_cflke")
-
-[node name="MoveState" type="Node" parent="."]
-script = ExtResource("33_4yec0")
-
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("_currentState", "_states")]
 script = ExtResource("34_me3gr")
-_currentState = NodePath("../IdleState")
-_states = [NodePath("../IdleState"), NodePath("../MoveState")]
+_currentState = NodePath("IdleState")
+_states = [NodePath("IdleState"), NodePath("MoveState"), NodePath("DashState")]
+
+[node name="IdleState" type="Node" parent="StateMachine"]
+script = ExtResource("32_cflke")
+
+[node name="MoveState" type="Node" parent="StateMachine"]
+script = ExtResource("33_4yec0")
+
+[node name="DashState" type="Node" parent="StateMachine" node_paths=PackedStringArray("_dashTimerNode")]
+script = ExtResource("40_2qsty")
+_dashTimerNode = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="StateMachine/DashState"]
+wait_time = 0.4
+one_shot = true
