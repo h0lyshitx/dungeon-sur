@@ -1,3 +1,4 @@
+using System;
 using Godot;
 using RPGDEMO.Scripts.General;
 
@@ -19,6 +20,7 @@ public partial class PlayerMoveState : PlayerState
 
         CharacterNode.Velocity = new(CharacterNode.Direction.X, 0, CharacterNode.Direction.Y);
         CharacterNode.Velocity *= Movespeed;
+
         // CharacterNode.MoveAndSlide(); -> this is done in Player class
         CharacterNode.Flip();
     }

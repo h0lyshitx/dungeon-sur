@@ -1,3 +1,4 @@
+using System;
 using Godot;
 using RPGDEMO.Scripts.General;
 
@@ -19,7 +20,6 @@ public partial class PlayerDashState : PlayerState
 
     public override void _PhysicsProcess(double delta)
     {
-        CharacterNode.MoveAndSlide();
         CharacterNode.Flip();
     }
 
