@@ -4,24 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49ed11e9-432b-4d86-8d9c-b1017f5ddc38" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyPatrolState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RPG DEMO/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RPG DEMO/.idea/CSharpierPlugin.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RPG DEMO/.idea/prettier.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RPG DEMO.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DunSur.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RPG DEMO.sln" beforeDir="false" afterPath="$PROJECT_DIR$/DunSur.sln" afterDir="false" />
+    <list default="true" id="49ed11e9-432b-4d86-8d9c-b1017f5ddc38" name="Changes" comment="update">
+      <change afterPath="$PROJECT_DIR$/DunSur.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DunSur.sln" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyAttackState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyChaseState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RPG DEMO/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RPG DEMO/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/Characters/Enemy/enemy_knight.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Characters/Enemy/enemy_knight.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/Levels/main.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Levels/main.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/Characters/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Character.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Characters/CharacterState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/CharacterState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyIdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyPatrolState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyPatrolState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyReturnState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyReturnState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Characters/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Player/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Characters/Player/PlayerState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Player/PlayerState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Characters/StateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/StateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/General/GameConstants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/General/GameConstants.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,9 +57,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     ".NET Executable.Editor.executor": "Run",
-    ".NET Executable.Player.executor": "Run",
+    ".NET Executable.Player.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "XThreadsFramesViewSplitterKey": "0.36399218",
     "com.codeium.enabled": "true",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "/run/media/smoocher/gotta_go_fast/Godot Engine/Projects/rpg_demo",
@@ -133,7 +130,8 @@
       <workItem from="1742823890103" duration="3247000" />
       <workItem from="1742908839566" duration="6581000" />
       <workItem from="1743090466458" duration="934000" />
-      <workItem from="1743304443755" duration="1893000" />
+      <workItem from="1743304443755" duration="7598000" />
+      <workItem from="1743315802426" duration="2051000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -183,7 +181,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742829891989</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add patrol state">
+      <option name="closed" value="true" />
+      <created>1743306403944</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1743306403944</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,7 +208,8 @@
     <MESSAGE value="5.2 - Designing an Enemy and add Gravity" />
     <MESSAGE value="adjust location" />
     <MESSAGE value="5.5 - Enemy Return State" />
-    <option name="LAST_COMMIT_MESSAGE" value="5.5 - Enemy Return State" />
+    <MESSAGE value="add patrol state" />
+    <option name="LAST_COMMIT_MESSAGE" value="add patrol state" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

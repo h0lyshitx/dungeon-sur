@@ -18,5 +18,17 @@ public abstract partial class EnemyState : CharacterState
         CharacterNode.AgentNode.GetNextPathPosition();
         CharacterNode.Velocity = CharacterNode.GlobalPosition.DirectionTo(Destination);
         CharacterNode.MoveAndSlide();
+        CharacterNode.Flip();
     }
+
+    protected void HandleChaseAreaBodyEntered(Node3D body)
+    {
+        CharacterNode.StateMachineNode.SwitchState<EnemyChaseState>();
+    }
+    protected void HandleChaseAreaBodyExited(Node3D body)
+    {
+        CharacterNode.StateMachineNode.SwitchState<EnemyReturnState>();
+    }
+
+
 }

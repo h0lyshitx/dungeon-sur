@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=3 uid="uid://bll3piwm8brsl"]
+[gd_scene load_steps=117 format=3 uid="uid://bll3piwm8brsl"]
 
 [ext_resource type="Script" uid="uid://bq2oav136dnex" path="res://Scripts/Characters/Enemy/EnemyKnight.cs" id="1_k2jiy"]
 [ext_resource type="Texture2D" uid="uid://dgpbwydavj7fr" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_000.png" id="1_tqeuw"]
@@ -104,6 +104,8 @@
 [ext_resource type="Script" uid="uid://3s5x8ssxbgxq" path="res://Scripts/Characters/Enemy/EnemyIdleState.cs" id="102_k2jiy"]
 [ext_resource type="Script" uid="uid://b213mt11bvevh" path="res://Scripts/Characters/Enemy/EnemyReturnState.cs" id="103_1y80c"]
 [ext_resource type="Script" uid="uid://5onfh753ylpj" path="res://Scripts/Characters/Enemy/EnemyPatrolState.cs" id="104_4pc2p"]
+[ext_resource type="Script" uid="uid://b33lp6fthgbl7" path="res://Scripts/Characters/Enemy/EnemyChaseState.cs" id="105_r77vn"]
+[ext_resource type="Script" uid="uid://38t25wty6t25" path="res://Scripts/Characters/Enemy/EnemyAttackState.cs" id="106_d307x"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tqeuw"]
 radius = 0.468315
@@ -241,12 +243,23 @@ _data = {
 &"TakeHit": SubResource("Animation_sfacj")
 }
 
-[node name="EnemyKnight" type="CharacterBody3D" node_paths=PackedStringArray("AnimPlayerNode", "PlayerSpriteNode", "StateMachineNode", "AgentNode")]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4pc2p"]
+height = 1.99512
+radius = 4.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_r77vn"]
+radius = 1.4
+
+[node name="EnemyKnight" type="CharacterBody3D" node_paths=PackedStringArray("AnimPlayerNode", "PlayerSpriteNode", "StateMachineNode", "AgentNode", "ChaseAreaNode", "AttackAreaNode")]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_k2jiy")
 AnimPlayerNode = NodePath("AnimationPlayer")
 PlayerSpriteNode = NodePath("Sprite3D")
 StateMachineNode = NodePath("StateMachine")
 AgentNode = NodePath("NavigationAgent3D")
+ChaseAreaNode = NodePath("ChaseArea")
+AttackAreaNode = NodePath("AttackArea")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.96046e-08, 0)
@@ -265,7 +278,7 @@ autoplay = "Idle"
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("_currentState", "_states") instance=ExtResource("100_n2c2l")]
 _currentState = NodePath("IdleState")
-_states = [NodePath("IdleState"), NodePath("ReturnState"), NodePath("PatrolState")]
+_states = [NodePath("IdleState"), NodePath("ReturnState"), NodePath("PatrolState"), NodePath("ChaseState"), NodePath("AttackState")]
 
 [node name="IdleState" type="Node" parent="StateMachine"]
 script = ExtResource("102_k2jiy")
@@ -275,10 +288,38 @@ script = ExtResource("103_1y80c")
 
 [node name="PatrolState" type="Node" parent="StateMachine" node_paths=PackedStringArray("_idleTimerNode")]
 script = ExtResource("104_4pc2p")
-_idleTimerNode = NodePath("Timer")
+_idleTimerNode = NodePath("IdleTimer")
 
-[node name="Timer" type="Timer" parent="StateMachine/PatrolState"]
+[node name="IdleTimer" type="Timer" parent="StateMachine/PatrolState"]
 one_shot = true
+
+[node name="ChaseState" type="Node" parent="StateMachine" node_paths=PackedStringArray("_updateDestinationNode")]
+script = ExtResource("105_r77vn")
+_updateDestinationNode = NodePath("UpdateDestinationTimer")
+
+[node name="UpdateDestinationTimer" type="Timer" parent="StateMachine/ChaseState"]
+wait_time = 0.2
+autostart = true
+
+[node name="AttackState" type="Node" parent="StateMachine"]
+script = ExtResource("106_d307x")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 debug_enabled = true
+
+[node name="ChaseArea" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChaseArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00341797, 0)
+shape = SubResource("CylinderShape3D_4pc2p")
+debug_color = Color(1, 0.959, 0.59, 0.419608)
+
+[node name="AttackArea" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackArea"]
+shape = SubResource("CylinderShape3D_r77vn")
+debug_color = Color(1, 0.53, 0.53, 0.419608)
