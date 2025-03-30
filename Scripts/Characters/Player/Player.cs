@@ -3,7 +3,7 @@ using RPGDEMO.Scripts.General;
 
 namespace RPGDEMO.Scripts.Characters.Player;
 
-public partial class Player : Character
+public partial class Player : RPGDEMO.Scripts.Characters.Character
 {
     private const float Gravity = 1500f;
 

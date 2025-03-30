@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="RPG DEMO"
+config/name="Dungeon Survival"
 run/main_scene="uid://npn4wwbfvuu2"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="uid://cqdkuf0qiiwvj"

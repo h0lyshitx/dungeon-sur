@@ -18,6 +18,9 @@ public abstract partial class Character : CharacterBody3D
     [Export]
     public Path3D PathNode { get; private set; }
 
+    [Export]
+    public NavigationAgent3D AgentNode { get; private set; }
+
     public Vector2 Direction = new();
 
     public void Flip()

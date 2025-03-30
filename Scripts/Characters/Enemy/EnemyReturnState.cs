@@ -1,23 +1,30 @@
 using Godot;
+using RPGDEMO.Scripts.Characters.Player;
 using RPGDEMO.Scripts.General;
 
 namespace RPGDEMO.Scripts.Characters.Enemy;
 
-public partial class EnemyReturnState : CharacterState
+public partial class EnemyReturnState : EnemyState
 {
-    private Vector3 _destination;
-
     public override void _Ready()
     {
         base._Ready();
-        Vector3 localPos = CharacterNode.PathNode.Curve.GetPointPosition(0);
-        Vector3 globalPos = CharacterNode.PathNode.GlobalPosition;
-        _destination = globalPos + localPos;
+        Destination = GetPointGlobalPosition(0);
     }
 
     protected override void EnterState()
     {
         CharacterNode.AnimPlayerNode.Play(GameConstants.ANIM_MOVE);
-        CharacterNode.GlobalPosition = _destination;
+        CharacterNode.AgentNode.TargetPosition = Destination;
+    }
+
+    public override void _PhysicsProcess(double delta)
+    {
+        if (CharacterNode.AgentNode.IsNavigationFinished())
+        {
+            CharacterNode.StateMachineNode.SwitchState<EnemyPatrolState>();
+            return;
+        }
+        Move();
     }
 }

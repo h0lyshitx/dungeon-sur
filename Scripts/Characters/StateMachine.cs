@@ -1,4 +1,5 @@
 using Godot;
+using Godot;
 using RPGDEMO.Scripts.General;
 
 namespace RPGDEMO.Scripts.Characters;

@@ -4,9 +4,19 @@ namespace RPGDEMO.Scripts.Characters.Enemy;
 
 public abstract partial class EnemyState : CharacterState
 {
-    public override void _Ready()
+    protected Vector3 Destination;
+
+    protected Vector3 GetPointGlobalPosition(int index)
     {
-        base._Ready();
-        CharacterNode = GetOwner<EnemyKnight>();
+        Vector3 localPos = CharacterNode.PathNode.Curve.GetPointPosition(index);
+        Vector3 globalPos = CharacterNode.PathNode.GlobalPosition;
+        return globalPos + localPos;
+    }
+
+    protected void Move()
+    {
+        CharacterNode.AgentNode.GetNextPathPosition();
+        CharacterNode.Velocity = CharacterNode.GlobalPosition.DirectionTo(Destination);
+        CharacterNode.MoveAndSlide();
     }
 }

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="49ed11e9-432b-4d86-8d9c-b1017f5ddc38" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyPatrolState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RPG DEMO/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RPG DEMO/.idea/CSharpierPlugin.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RPG DEMO/.idea/prettier.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG DEMO.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DunSur.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG DEMO.sln" beforeDir="false" afterPath="$PROJECT_DIR$/DunSur.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Characters/Enemy/enemy_knight.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Characters/Enemy/enemy_knight.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Levels/main.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Levels/main.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Characters/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Characters/CharacterState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/CharacterState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyIdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyReturnState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyReturnState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Characters/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Characters/Player/PlayerState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Player/PlayerState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Characters/StateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/StateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="firstShow" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Scripts/Characters/Character.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Characters/CharacterState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyIdleState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyKnight.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyPatrolState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyReturnState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Characters/Player/Player.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Characters/Player/PlayerState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Characters/StateMachine.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2uNzy67XRxOU1PLNYhogosO4f9e" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Executable.Editor.executor": "Run",
+    ".NET Executable.Player.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.codeium.enabled": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/run/media/smoocher/gotta_go_fast/Godot Engine/Projects/rpg_demo",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected=".NET Executable.Player">
+    <configuration name="Player GDScript" type="GDSCRIPT_DEBUG_RUN_CONFIGURATION" factoryName="GdScriptRunFactory" show_console_on_std_err="false" show_console_on_std_out="false" port="6006">
+      <option name="address" value="127.0.0.1" />
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Editor" type="RunExe" factoryName=".NET Executable">
+      <option name="EXE_PATH" value="$USER_HOME$/GodotEngine/Godot_v4.4.1-stable_mono_linux.x86_64" />
+      <option name="PROGRAM_PARAMETERS" value="--path &quot;./&quot; --editor" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="RUNTIME_TYPE" value="coreclr" />
+      <method v="2">
+        <option name="Build Solution" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Player" type="RunExe" factoryName=".NET Executable">
+      <option name="EXE_PATH" value="$USER_HOME$/GodotEngine/Godot_v4.4.1-stable_mono_linux.x86_64" />
+      <option name="PROGRAM_PARAMETERS" value="--path &quot;./&quot;" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="RUNTIME_TYPE" value="coreclr" />
+      <method v="2">
+        <option name="Build Solution" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="49ed11e9-432b-4d86-8d9c-b1017f5ddc38" name="Changes" comment="" />
+      <created>1742104070718</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1742104070718</updated>
+      <workItem from="1742104071739" duration="10127000" />
+      <workItem from="1742219883737" duration="4396000" />
+      <workItem from="1742303842176" duration="6283000" />
+      <workItem from="1742394511238" duration="4684000" />
+      <workItem from="1742572344008" duration="887000" />
+      <workItem from="1742655716421" duration="613000" />
+      <workItem from="1742698645743" duration="6516000" />
+      <workItem from="1742822403378" duration="1028000" />
+      <workItem from="1742823890103" duration="3247000" />
+      <workItem from="1742908839566" duration="6581000" />
+      <workItem from="1743090466458" duration="934000" />
+      <workItem from="1743304443755" duration="1893000" />
+    </task>
+    <task id="LOCAL-00001" summary="Init">
+      <option name="closed" value="true" />
+      <created>1742226091731</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1742226091731</updated>
+    </task>
+    <task id="LOCAL-00002" summary="2025-03-18 | 3.10 Finalizing the Dash State">
+      <option name="closed" value="true" />
+      <created>1742309933125</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1742309933125</updated>
+    </task>
+    <task id="LOCAL-00003" summary="updating uid">
+      <option name="closed" value="true" />
+      <created>1742309948520</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1742309948520</updated>
+    </task>
+    <task id="LOCAL-00004" summary="5.2 - Designing an Enemy and add Gravity">
+      <option name="closed" value="true" />
+      <created>1742741113674</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1742741113674</updated>
+    </task>
+    <task id="LOCAL-00005" summary="adjust location">
+      <option name="closed" value="true" />
+      <created>1742741183826</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1742741183826</updated>
+    </task>
+    <task id="LOCAL-00006" summary="5.5 - Enemy Return State">
+      <option name="closed" value="true" />
+      <created>1742829891989</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1742829891989</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".gitattributes" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Init" />
+    <MESSAGE value="2025-03-18 | 3.10 Finalizing the Dash State" />
+    <MESSAGE value="updating uid" />
+    <MESSAGE value="5.2 - Designing an Enemy and add Gravity" />
+    <MESSAGE value="adjust location" />
+    <MESSAGE value="5.5 - Enemy Return State" />
+    <option name="LAST_COMMIT_MESSAGE" value="5.5 - Enemy Return State" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
