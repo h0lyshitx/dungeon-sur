@@ -5,8 +5,11 @@ namespace RPGDEMO.Scripts.Characters.Player;
 
 public abstract partial class PlayerState : CharacterState
 {
-    public override void _Ready()
+    protected void CheckForAttackInput()
     {
-        base._Ready();
+        if (Input.IsActionJustPressed(GameConstants.INPUT_ATTACK))
+        {
+            CharacterNode.StateMachineNode.SwitchState<PlayerAttackState>();
+        }
     }
 }

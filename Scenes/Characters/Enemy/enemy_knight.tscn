@@ -1,7 +1,8 @@
-[gd_scene load_steps=117 format=3 uid="uid://bll3piwm8brsl"]
+[gd_scene load_steps=122 format=3 uid="uid://bll3piwm8brsl"]
 
 [ext_resource type="Script" uid="uid://bq2oav136dnex" path="res://Scripts/Characters/Enemy/EnemyKnight.cs" id="1_k2jiy"]
 [ext_resource type="Texture2D" uid="uid://dgpbwydavj7fr" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_000.png" id="1_tqeuw"]
+[ext_resource type="Script" uid="uid://db8m3iusrly4o" path="res://Scripts/Resources/StatResource.cs" id="2_bo1id"]
 [ext_resource type="Texture2D" uid="uid://dfnkf5v5aknel" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_001.png" id="2_pmxc1"]
 [ext_resource type="Texture2D" uid="uid://cmeioute6gthw" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_002.png" id="3_p06wd"]
 [ext_resource type="Texture2D" uid="uid://10mur6e588ft" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_003.png" id="4_n2c2l"]
@@ -107,14 +108,26 @@
 [ext_resource type="Script" uid="uid://b33lp6fthgbl7" path="res://Scripts/Characters/Enemy/EnemyChaseState.cs" id="105_r77vn"]
 [ext_resource type="Script" uid="uid://38t25wty6t25" path="res://Scripts/Characters/Enemy/EnemyAttackState.cs" id="106_d307x"]
 
+[sub_resource type="Resource" id="Resource_2xpru"]
+script = ExtResource("2_bo1id")
+StatType = 0
+StatValue = 1.0
+metadata/_custom_type_script = "uid://db8m3iusrly4o"
+
+[sub_resource type="Resource" id="Resource_bo1id"]
+script = ExtResource("2_bo1id")
+StatType = 1
+StatValue = 1.0
+metadata/_custom_type_script = "uid://db8m3iusrly4o"
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tqeuw"]
 radius = 0.468315
 height = 1.28979
 
 [sub_resource type="Animation" id="Animation_cn4sr"]
 resource_name = "Attack"
-length = 1.00001
-step = 0.0833333
+length = 0.500004
+step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -122,7 +135,7 @@ tracks/0/path = NodePath("Sprite3D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
+"times": PackedFloat32Array(0, 0.0416667, 0.0833333, 0.125, 0.166667, 0.208333, 0.25, 0.291667, 0.333333, 0.375, 0.416667, 0.458333),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("43_cnroy"), ExtResource("44_mx8vk"), ExtResource("45_0eplh"), ExtResource("46_p5uja"), ExtResource("47_id72s"), ExtResource("48_cofve"), ExtResource("49_ebm7m"), ExtResource("50_ii5hd"), ExtResource("51_fks62"), ExtResource("52_n7wpe"), ExtResource("53_77toe"), ExtResource("54_iuwqm")]
@@ -219,7 +232,8 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_sfacj"]
 resource_name = "TakeHit"
-step = 0.0833333
+length = 0.500004
+step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -227,7 +241,7 @@ tracks/0/path = NodePath("Sprite3D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
+"times": PackedFloat32Array(0, 0.0416667, 0.0833333, 0.125, 0.166667, 0.208333, 0.25, 0.291667, 0.333333, 0.375, 0.416667, 0.458333),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("55_g78v0"), ExtResource("56_mqh8u"), ExtResource("57_47k1h"), ExtResource("58_e3f4p"), ExtResource("59_41k11"), ExtResource("60_kmy3l"), ExtResource("61_5thot"), ExtResource("62_l0c6o"), ExtResource("63_sv2x5"), ExtResource("64_nxqj5"), ExtResource("65_68p85"), ExtResource("66_n0fi3")]
@@ -245,18 +259,28 @@ _data = {
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4pc2p"]
 height = 1.99512
-radius = 4.0
+radius = 8.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_r77vn"]
-radius = 1.4
+radius = 1.2
 
-[node name="EnemyKnight" type="CharacterBody3D" node_paths=PackedStringArray("AnimPlayerNode", "PlayerSpriteNode", "StateMachineNode", "AgentNode", "ChaseAreaNode", "AttackAreaNode")]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d307x"]
+radius = 1.26322
+height = 3.99314
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d307x"]
+size = Vector3(1.35669, 2.28711, 1)
+
+[node name="EnemyKnight" type="CharacterBody3D" node_paths=PackedStringArray("AnimPlayerNode", "PlayerSpriteNode", "StateMachineNode", "HurtboxNode", "HitboxNode", "AgentNode", "ChaseAreaNode", "AttackAreaNode")]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_k2jiy")
+_stats = Array[Object]([SubResource("Resource_2xpru"), SubResource("Resource_bo1id")])
 AnimPlayerNode = NodePath("AnimationPlayer")
 PlayerSpriteNode = NodePath("Sprite3D")
 StateMachineNode = NodePath("StateMachine")
+HurtboxNode = NodePath("Hurtbox")
+HitboxNode = NodePath("Hitbox")
 AgentNode = NodePath("NavigationAgent3D")
 ChaseAreaNode = NodePath("ChaseArea")
 AttackAreaNode = NodePath("AttackArea")
@@ -266,7 +290,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.96046e-08, 0)
 pixel_size = 0.0025
 texture = ExtResource("1_tqeuw")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="Collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0456416, -0.0764484, 0)
 shape = SubResource("CapsuleShape3D_tqeuw")
 
@@ -304,6 +328,10 @@ autostart = true
 [node name="AttackState" type="Node" parent="StateMachine"]
 script = ExtResource("106_d307x")
 
+[node name="Timer" type="Timer" parent="StateMachine/AttackState"]
+wait_time = 2.0
+one_shot = true
+
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 debug_enabled = true
 
@@ -323,3 +351,23 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackArea"]
 shape = SubResource("CylinderShape3D_r77vn")
 debug_color = Color(1, 0.53, 0.53, 0.419608)
+
+[node name="Hurtbox" type="Area3D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+transform = Transform3D(0.999841, 0, -0.0178538, 0, 1, 0, 0.0178538, 0, 0.999841, -0.15443, -0.319892, 0)
+shape = SubResource("CapsuleShape3D_d307x")
+debug_color = Color(0.2573, 0.83, 0.48638, 0.419608)
+
+[node name="Hitbox" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.51502, 0, 0)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.154442, -0.643555, 0)
+shape = SubResource("BoxShape3D_d307x")
+debug_color = Color(0.93, 0.5952, 0.372, 0.835294)

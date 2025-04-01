@@ -4,20 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49ed11e9-432b-4d86-8d9c-b1017f5ddc38" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/DunSur.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DunSur.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyAttackState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyChaseState.cs" afterDir="false" />
+    <list default="true" id="49ed11e9-432b-4d86-8d9c-b1017f5ddc38" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Scripts/Characters/Player/PlayerAttackState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/Resources/Stat.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/Resources/StatResource.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RPG DEMO/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RPG DEMO/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/Characters/Enemy/enemy_knight.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Characters/Enemy/enemy_knight.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Levels/main.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Levels/main.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Characters/Player/player.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Characters/Player/player.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/Characters/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Character.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyIdleState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyPatrolState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyPatrolState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyReturnState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyReturnState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyKnight.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyKnight.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Characters/Player/PlayerIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Player/PlayerIdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Characters/Player/PlayerMoveState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Player/PlayerMoveState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Characters/Player/PlayerState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Player/PlayerState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/General/GameConstants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/General/GameConstants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +33,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Scripts/Characters/Character.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///run/media/smoocher/gotta_go_fast/Godot Engine/Projects/rpg_demo/Scripts/Characters/Character.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Characters/CharacterState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyIdleState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyKnight.cs" root0="FORCE_HIGHLIGHTING" />
@@ -54,25 +56,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Executable.Editor.executor": "Run",
-    ".NET Executable.Player.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "XThreadsFramesViewSplitterKey": "0.36399218",
-    "com.codeium.enabled": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/run/media/smoocher/gotta_go_fast/Godot Engine/Projects/rpg_demo",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Executable.Editor.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Executable.Player.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.36399218&quot;,
+    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/run/media/smoocher/gotta_go_fast/Godot Engine/Projects/rpg_demo&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Executable.Player">
     <configuration name="Player GDScript" type="GDSCRIPT_DEBUG_RUN_CONFIGURATION" factoryName="GdScriptRunFactory" show_console_on_std_err="false" show_console_on_std_out="false" port="6006">
       <option name="address" value="127.0.0.1" />
@@ -131,7 +133,8 @@
       <workItem from="1742908839566" duration="6581000" />
       <workItem from="1743090466458" duration="934000" />
       <workItem from="1743304443755" duration="7598000" />
-      <workItem from="1743315802426" duration="2051000" />
+      <workItem from="1743315802426" duration="7009000" />
+      <workItem from="1743427846979" duration="3494000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -189,7 +192,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743306403944</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add attack state and refactoring">
+      <option name="closed" value="true" />
+      <created>1743318597340</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1743318597340</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,7 +220,8 @@
     <MESSAGE value="adjust location" />
     <MESSAGE value="5.5 - Enemy Return State" />
     <MESSAGE value="add patrol state" />
-    <option name="LAST_COMMIT_MESSAGE" value="add patrol state" />
+    <MESSAGE value="add attack state and refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="add attack state and refactoring" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
