@@ -71,17 +71,17 @@
 [sub_resource type="Resource" id="Resource_8bd3e"]
 script = ExtResource("2_q6jcb")
 StatType = 0
-StatValue = 3.0
+StatValue = 15.0
 metadata/_custom_type_script = "uid://db8m3iusrly4o"
 
 [sub_resource type="Resource" id="Resource_q6jcb"]
 script = ExtResource("2_q6jcb")
 StatType = 1
-StatValue = 1.0
+StatValue = 3.0
 metadata/_custom_type_script = "uid://db8m3iusrly4o"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uvgfe"]
-radius = 0.488436
+radius = 0.445891
 height = 1.4838
 
 [sub_resource type="Animation" id="Animation_h1onf"]
@@ -100,6 +100,32 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("38_ht3jl"), ExtResource("39_856el"), ExtResource("40_oql2n"), ExtResource("41_j3cns"), ExtResource("42_fu5o4"), ExtResource("43_sofil"), ExtResource("44_ybcsq"), ExtResource("45_n6yol"), ExtResource("46_8xw4w"), ExtResource("47_n0rfk"), ExtResource("48_xmo1i"), ExtResource("49_uhwn4")]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/AttackState")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.125),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"PerformAttack"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerHitbox/HitboxShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
 
 [sub_resource type="Animation" id="Animation_ht3jl"]
 resource_name = "Attack2"
@@ -117,6 +143,32 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("50_h1onf"), ExtResource("51_on6jm"), ExtResource("52_q6jcb"), ExtResource("53_8bd3e"), ExtResource("54_5qakp"), ExtResource("55_j8mah"), ExtResource("56_3spsx"), ExtResource("57_a8u7n"), ExtResource("58_u2yf0"), ExtResource("59_gfg6c"), ExtResource("60_en5ka"), ExtResource("61_1v4lm")]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/AttackState")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0833333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"PerformAttack"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerHitbox/HitboxShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
 
 [sub_resource type="Animation" id="Animation_h8opa"]
 resource_name = "Dash"
@@ -132,6 +184,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("32_uvgfe"), ExtResource("33_e5xbx"), ExtResource("34_8uivy"), ExtResource("35_yfcdn"), ExtResource("36_68bc3"), ExtResource("37_mf3wh")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerHurtbox/HurtboxShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_lyjr2"]
@@ -182,6 +246,30 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("1_27cb7")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerHitbox/HitboxShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerHurtbox/HurtboxShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_siygm"]
 _data = {
@@ -196,10 +284,11 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_on6jm"]
 size = Vector3(0.5, 0.765137, 0.5)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_on6jm"]
-height = 1.46914
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q6jcb"]
+radius = 0.445891
+height = 1.4838
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("AnimPlayerNode", "PlayerSpriteNode", "StateMachineNode", "HurtboxNode", "HitboxNode")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("AnimPlayerNode", "PlayerSpriteNode", "StateMachineNode", "HurtboxNode", "HurtboxCollisionNode", "HitboxNode", "HitboxCollisionNode")]
 collision_layer = 2
 collision_mask = 5
 floor_max_angle = 1.55334
@@ -209,8 +298,10 @@ _stats = Array[Object]([SubResource("Resource_8bd3e"), SubResource("Resource_q6j
 AnimPlayerNode = NodePath("AnimationPlayer")
 PlayerSpriteNode = NodePath("Sprite3D")
 StateMachineNode = NodePath("StateMachine")
-HurtboxNode = NodePath("Hurtbox")
-HitboxNode = NodePath("Hitbox")
+HurtboxNode = NodePath("PlayerHurtbox")
+HurtboxCollisionNode = NodePath("PlayerHurtbox/HurtboxShape3D")
+HitboxNode = NodePath("PlayerHitbox")
+HitboxCollisionNode = NodePath("PlayerHitbox/HitboxShape3D")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 pixel_size = 0.0025
@@ -218,7 +309,6 @@ texture_filter = 0
 texture = ExtResource("1_27cb7")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0331556, 0.0147786, 0)
 shape = SubResource("CapsuleShape3D_uvgfe")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -250,21 +340,19 @@ _comboTimerNode = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="StateMachine/AttackState"]
 
-[node name="Hitbox" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.795809, 0, 0)
+[node name="PlayerHitbox" type="Area3D" parent="."]
 collision_layer = 16
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.132568, 0)
+[node name="HitboxShape3D" type="CollisionShape3D" parent="PlayerHitbox"]
 shape = SubResource("BoxShape3D_on6jm")
+disabled = true
 debug_color = Color(0.93, 0.5952, 0.372, 0.835294)
 
-[node name="Hurtbox" type="Area3D" parent="."]
+[node name="PlayerHurtbox" type="Area3D" parent="."]
 collision_layer = 0
-collision_mask = 16
+collision_mask = 32
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0349612, 0.00582695, 0)
-shape = SubResource("CapsuleShape3D_on6jm")
-debug_color = Color(0.2573, 0.83, 0.48638, 0.419608)
+[node name="HurtboxShape3D" type="CollisionShape3D" parent="PlayerHurtbox"]
+shape = SubResource("CapsuleShape3D_q6jcb")
+debug_color = Color(0.22759, 0.614468, 0.492643, 0.42)

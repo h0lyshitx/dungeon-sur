@@ -7,7 +7,7 @@ public partial class EnemyIdleState : EnemyState
 {
     protected override void EnterState()
     {
-        CharacterNode.AnimPlayerNode.Play(GameConstants.ANIM_IDLE, -1d, 1.5f);
+        CharacterNode.AnimPlayerNode.Play(GameConstants.ANIM_IDLE, -1d, 1.5f); // runs at 1.5x speed
         CharacterNode.ChaseAreaNode.BodyEntered += HandleChaseAreaBodyEntered;
     }
 

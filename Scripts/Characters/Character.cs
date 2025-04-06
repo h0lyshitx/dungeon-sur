@@ -1,5 +1,6 @@
 using Godot;
 using RPGDEMO.Scripts.Resources;
+using System.Linq;
 
 namespace RPGDEMO.Scripts.Characters;
 
@@ -11,7 +12,9 @@ public abstract partial class Character : CharacterBody3D
     [Export] public Sprite3D PlayerSpriteNode { get; private set; }
     [Export] public StateMachine StateMachineNode { get; private set; }
     [Export] public Area3D HurtboxNode { get; private set; }
+    [Export] public CollisionShape3D HurtboxCollisionNode { get; private set; }
     [Export] public Area3D HitboxNode { get; private set; }
+    [Export] public CollisionShape3D HitboxCollisionNode { get; private set; }
 
     [ExportGroup("AI Nodes")]
     [Export] public Path3D PathNode { get; private set; }
@@ -40,8 +43,28 @@ public abstract partial class Character : CharacterBody3D
         HurtboxNode.AreaEntered += HandleHurtboxAreaEntered;
     }
 
-    private void HandleHurtboxAreaEntered(Area3D area)
+    protected void HandleHurtboxAreaEntered(Area3D area)
     {
-        GD.Print("Hurt");
+        StatResource health = GetStatResource(Stat.Health);
+        Character character = area.GetOwner<Character>();
+        
+        health.StatValue -= character.GetStatResource(Stat.Strength).StatValue;
+        GD.Print($"{health.StatValue} HP");
+    }
+
+    private StatResource GetStatResource(Stat stat)
+    {
+        return _stats.Where((element) => element.StatType == stat).FirstOrDefault();
+
+        // Does the same thing as the below code
+        // foreach (StatResource element in _stats)
+        // {
+        //     if (element.StatType == stat)
+        //     {
+        //         result = element;
+        //         break;
+        //     }
+        // }
+        // return result;
     }
 }

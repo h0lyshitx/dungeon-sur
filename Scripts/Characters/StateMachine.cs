@@ -1,5 +1,6 @@
+using System.Linq;
 using Godot;
-using Godot;
+
 using RPGDEMO.Scripts.General;
 
 namespace RPGDEMO.Scripts.Characters;
@@ -19,15 +20,8 @@ public partial class StateMachine : Node
 
     public void SwitchState<T>()
     {
-        Node newState = null;
+        Node newState = _states.Where((state) => state is T).FirstOrDefault();
 
-        foreach (Node state in _states)
-        {
-            if (state is T)
-            {
-                newState = state;
-            }
-        }
         if (newState == null)
             return;
 

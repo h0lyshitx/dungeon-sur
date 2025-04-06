@@ -43,5 +43,6 @@ public partial class PlayerDashState : PlayerState
     {
         CharacterNode.Velocity = Vector3.Zero;
         CharacterNode.StateMachineNode.SwitchState<PlayerIdleState>();
+        CharacterNode.HurtboxCollisionNode.SetDeferred("disabled", false);
     }
 }

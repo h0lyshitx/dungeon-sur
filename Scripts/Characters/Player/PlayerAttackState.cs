@@ -33,4 +33,14 @@ public partial class PlayerAttackState : PlayerState
         _comboCounter = Mathf.Wrap(_comboCounter, 1, _maxComboCount + 1);
         CharacterNode.StateMachineNode.SwitchState<PlayerIdleState>();
     }
+    
+    private void PerformAttack()
+    {
+        Vector3 newPosition = CharacterNode.PlayerSpriteNode.FlipH
+            ? Vector3.Left
+            : Vector3.Right;
+        float distanceMultiplier = 0.75f;
+        
+        CharacterNode.HitboxNode.Position = newPosition * distanceMultiplier;
+    }
 }

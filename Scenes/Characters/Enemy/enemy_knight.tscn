@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=3 uid="uid://bll3piwm8brsl"]
+[gd_scene load_steps=121 format=3 uid="uid://bll3piwm8brsl"]
 
 [ext_resource type="Script" uid="uid://bq2oav136dnex" path="res://Scripts/Characters/Enemy/EnemyKnight.cs" id="1_k2jiy"]
 [ext_resource type="Texture2D" uid="uid://dgpbwydavj7fr" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_000.png" id="1_tqeuw"]
@@ -111,18 +111,18 @@
 [sub_resource type="Resource" id="Resource_2xpru"]
 script = ExtResource("2_bo1id")
 StatType = 0
-StatValue = 1.0
+StatValue = 10.0
 metadata/_custom_type_script = "uid://db8m3iusrly4o"
 
 [sub_resource type="Resource" id="Resource_bo1id"]
 script = ExtResource("2_bo1id")
 StatType = 1
-StatValue = 1.0
+StatValue = 2.0
 metadata/_custom_type_script = "uid://db8m3iusrly4o"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tqeuw"]
 radius = 0.468315
-height = 1.28979
+height = 1.34422
 
 [sub_resource type="Animation" id="Animation_cn4sr"]
 resource_name = "Attack"
@@ -139,6 +139,32 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("43_cnroy"), ExtResource("44_mx8vk"), ExtResource("45_0eplh"), ExtResource("46_p5uja"), ExtResource("47_id72s"), ExtResource("48_cofve"), ExtResource("49_ebm7m"), ExtResource("50_ii5hd"), ExtResource("51_fks62"), ExtResource("52_n7wpe"), ExtResource("53_77toe"), ExtResource("54_iuwqm")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EnemyHitbox/HitboxShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.416667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StateMachine/AttackState")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.166667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"PerformAttack"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_nuxx4"]
@@ -229,6 +255,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0025]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EnemyHitbox/HitboxShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_sfacj"]
 resource_name = "TakeHit"
@@ -264,14 +302,10 @@ radius = 8.0
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_r77vn"]
 radius = 1.2
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d307x"]
-radius = 1.26322
-height = 3.99314
+[sub_resource type="BoxShape3D" id="BoxShape3D_bo1id"]
+size = Vector3(0.5, 0.765137, 0.5)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_d307x"]
-size = Vector3(1.35669, 2.28711, 1)
-
-[node name="EnemyKnight" type="CharacterBody3D" node_paths=PackedStringArray("AnimPlayerNode", "PlayerSpriteNode", "StateMachineNode", "HurtboxNode", "HitboxNode", "AgentNode", "ChaseAreaNode", "AttackAreaNode")]
+[node name="EnemyKnight" type="CharacterBody3D" node_paths=PackedStringArray("AnimPlayerNode", "PlayerSpriteNode", "StateMachineNode", "HurtboxNode", "HurtboxCollisionNode", "HitboxNode", "HitboxCollisionNode", "AgentNode", "ChaseAreaNode", "AttackAreaNode")]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_k2jiy")
@@ -279,8 +313,10 @@ _stats = Array[Object]([SubResource("Resource_2xpru"), SubResource("Resource_bo1
 AnimPlayerNode = NodePath("AnimationPlayer")
 PlayerSpriteNode = NodePath("Sprite3D")
 StateMachineNode = NodePath("StateMachine")
-HurtboxNode = NodePath("Hurtbox")
-HitboxNode = NodePath("Hitbox")
+HurtboxNode = NodePath("EnemyHurtbox")
+HurtboxCollisionNode = NodePath("EnemyHurtbox/HurtboxShape3D")
+HitboxNode = NodePath("EnemyHitbox")
+HitboxCollisionNode = NodePath("EnemyHitbox/HitboxShape3D")
 AgentNode = NodePath("NavigationAgent3D")
 ChaseAreaNode = NodePath("ChaseArea")
 AttackAreaNode = NodePath("AttackArea")
@@ -291,7 +327,7 @@ pixel_size = 0.0025
 texture = ExtResource("1_tqeuw")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0456416, -0.0764484, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0123144, -0.0796682, 0)
 shape = SubResource("CapsuleShape3D_tqeuw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -342,7 +378,7 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChaseArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00341797, 0)
 shape = SubResource("CylinderShape3D_4pc2p")
-debug_color = Color(1, 0.959, 0.59, 0.419608)
+debug_color = Color(0.908358, 0.948356, 1, 0.419608)
 
 [node name="AttackArea" type="Area3D" parent="."]
 collision_layer = 4
@@ -350,24 +386,19 @@ collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackArea"]
 shape = SubResource("CylinderShape3D_r77vn")
-debug_color = Color(1, 0.53, 0.53, 0.419608)
+debug_color = Color(0.842335, 0.637951, 0.53526, 0.419608)
 
-[node name="Hurtbox" type="Area3D" parent="."]
-unique_name_in_owner = true
+[node name="EnemyHitbox" type="Area3D" parent="."]
+collision_layer = 32
+collision_mask = 0
+
+[node name="HitboxShape3D" type="CollisionShape3D" parent="EnemyHitbox"]
+shape = SubResource("BoxShape3D_bo1id")
+debug_color = Color(0.93, 0.5952, 0.372, 0.835294)
+
+[node name="EnemyHurtbox" type="Area3D" parent="."]
 collision_layer = 0
 collision_mask = 16
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
-transform = Transform3D(0.999841, 0, -0.0178538, 0, 1, 0, 0.0178538, 0, 0.999841, -0.15443, -0.319892, 0)
-shape = SubResource("CapsuleShape3D_d307x")
-debug_color = Color(0.2573, 0.83, 0.48638, 0.419608)
-
-[node name="Hitbox" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.51502, 0, 0)
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.154442, -0.643555, 0)
-shape = SubResource("BoxShape3D_d307x")
-debug_color = Color(0.93, 0.5952, 0.372, 0.835294)
+[node name="HurtboxShape3D" type="CollisionShape3D" parent="EnemyHurtbox"]
+shape = SubResource("CapsuleShape3D_tqeuw")

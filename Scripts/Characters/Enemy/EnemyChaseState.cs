@@ -35,7 +35,6 @@ public partial class EnemyChaseState : EnemyState
 
     private void HandleAttackAreaBodyEntered(Node3D body)
     {
-        GD.Print("Attack");
         CharacterNode.StateMachineNode.SwitchState<EnemyAttackState>();
     }
     

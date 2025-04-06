@@ -58,4 +58,5 @@ Attack={
 3d_physics/layer_1="Environment"
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Enemies"
-3d_physics/layer_5="Weapon"
+3d_physics/layer_5="PlayerDamage"
+3d_physics/layer_6="EnemyDamage"
