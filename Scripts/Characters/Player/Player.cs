@@ -3,12 +3,11 @@ using RPGDEMO.Scripts.General;
 
 namespace RPGDEMO.Scripts.Characters.Player;
 
-public partial class Player : RPGDEMO.Scripts.Characters.Character
+public partial class Player : Character
 {
     private const float Gravity = 1500f;
 
-    public override void _Ready() { }
-
+    
     public override void _PhysicsProcess(double delta)
     {
         Vector3 velocity = Velocity;
