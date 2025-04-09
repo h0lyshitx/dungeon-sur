@@ -1,33 +1,63 @@
-using Godot;
-using RPGDEMO.Scripts.General;
 using System.Linq;
+using DUNSUR.Scripts.General;
+using Godot;
 
-namespace RPGDEMO.Scripts.Characters.Enemy;
+namespace DUNSUR.Scripts.Characters.Enemy;
 
 public partial class EnemyAttackState : EnemyState
 {
+    [Export] private Timer _attackTimerNode;
     private Vector3 _targetPosition;
     protected override void EnterState()
     {
-        CharacterNode.AnimPlayerNode.Play(GameConstants.ANIM_ATTACK);
-        Node3D target = CharacterNode.AttackAreaNode.GetOverlappingBodies().First();
-        _targetPosition = target.GlobalPosition; // player will be given time to dodge from this position. 
-        
-        CharacterNode.AttackAreaNode.BodyExited += HandleAttackAreaBodyExited;
+        PerformAttack();
+        CharacterNode.AnimPlayerNode.AnimationFinished += HandleAnimationFinished;
     }
 
     protected override void ExitState()
     {
-        CharacterNode.AttackAreaNode.BodyExited -= HandleAttackAreaBodyExited;
-    }
-    private void HandleAttackAreaBodyExited(Node3D body)
-    {
-        CharacterNode.HitboxCollisionNode.SetDeferred("disabled", true);
-        CharacterNode.StateMachineNode.SwitchState<EnemyChaseState>();
+        CharacterNode.AnimPlayerNode.AnimationFinished -= HandleAnimationFinished;
     }
 
-    private void PerformAttack()
+    public override void _Ready()
     {
-        CharacterNode.HitboxNode.GlobalPosition = _targetPosition;
+        base._Ready();
+        _attackTimerNode.Timeout += HandleAttackTimeout;
+    }
+
+    private void HandleAnimationFinished(StringName animname)
+    {
+        CharacterNode.HitboxCollisionNode.SetDeferred("disabled", true);
+        _attackTimerNode.Start();
+    }
+    private void HandleAttackTimeout()
+    {
+        PerformAttack();
+    }
+
+    private void PerformAttack() 
+    {
+        Node3D target = CharacterNode.AttackAreaNode.GetOverlappingBodies().FirstOrDefault();
+
+        if (target == null)
+        {
+            Node3D chaseTarget = CharacterNode.ChaseAreaNode.GetOverlappingBodies().FirstOrDefault();
+            if (chaseTarget == null)
+            {
+                CharacterNode.StateMachineNode.SwitchState<EnemyReturnState>();
+            }
+            else
+            {
+                CharacterNode.StateMachineNode.SwitchState<EnemyChaseState>();
+            }
+        }
+        else
+        {
+            Vector3 direction = CharacterNode.GlobalPosition.DirectionTo(target.GlobalPosition);
+            CharacterNode.SpriteNode.FlipH = direction.X < 0;
+            _targetPosition = target.GlobalPosition;
+            CharacterNode.HitboxNode.GlobalPosition = _targetPosition;
+            CharacterNode.AnimPlayerNode.Play(GameConstants.ANIM_ATTACK);
+        }
     }
 }

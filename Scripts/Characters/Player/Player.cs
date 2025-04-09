@@ -1,7 +1,7 @@
+using DUNSUR.Scripts.General;
 using Godot;
-using RPGDEMO.Scripts.General;
 
-namespace RPGDEMO.Scripts.Characters.Player;
+namespace DUNSUR.Scripts.Characters.Player;
 
 public partial class Player : Character
 {

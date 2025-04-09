@@ -1,13 +1,12 @@
-using System;
+using DUNSUR.Scripts.General;
 using Godot;
-using RPGDEMO.Scripts.General;
 
-namespace RPGDEMO.Scripts.Characters.Player;
+namespace DUNSUR.Scripts.Characters.Player;
 
 public partial class PlayerDashState : PlayerState
 {
     [Export]
-    private Timer _dashTimerNode;
+    private Timer _dashTimerNode; // determine how long the player will dash
 
     [Export(PropertyHint.Range, "0, 30, 1")]
     private float _speed = 12;
@@ -30,7 +29,7 @@ public partial class PlayerDashState : PlayerState
 
         if (CharacterNode.Velocity == Vector3.Zero)
         {
-            CharacterNode.Velocity = CharacterNode.PlayerSpriteNode.FlipH
+            CharacterNode.Velocity = CharacterNode.SpriteNode.FlipH
                 ? Vector3.Left
                 : Vector3.Right;
         }

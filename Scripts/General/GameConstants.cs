@@ -1,4 +1,4 @@
-namespace RPGDEMO.Scripts.General;
+namespace DUNSUR.Scripts.General;
 
 public class GameConstants
 {
@@ -8,6 +8,7 @@ public class GameConstants
     public const string ANIM_DASH = "Dash";
     public const string ANIM_ATTACK = "Attack";
     public const string ANIM_RESET = "RESET";
+    public const string ANIM_DEATH = "Death";
 
     // Inputs
     public const string INPUT_MOVE_LEFT = "MoveLeft";

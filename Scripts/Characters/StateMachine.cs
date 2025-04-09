@@ -1,9 +1,8 @@
 using System.Linq;
+using DUNSUR.Scripts.General;
 using Godot;
 
-using RPGDEMO.Scripts.General;
-
-namespace RPGDEMO.Scripts.Characters;
+namespace DUNSUR.Scripts.Characters;
 
 public partial class StateMachine : Node
 {
@@ -23,8 +22,10 @@ public partial class StateMachine : Node
         Node newState = _states.Where((state) => state is T).FirstOrDefault();
 
         if (newState == null)
-            return;
+        { return;}
 
+        if (_currentState is T)  { return;}
+        
         _currentState.Notification(GameConstants.NOTIFICATION_EXIT_STATE); // send notification to disable something
         _currentState = newState;
         _currentState.Notification(GameConstants.NOTIFICATION_ENTER_STATE); // send notification to enable something

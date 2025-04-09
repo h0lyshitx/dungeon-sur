@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://1ptpmqcr1dux"]
+[gd_scene load_steps=97 format=3 uid="uid://1ptpmqcr1dux"]
 
 [ext_resource type="Texture2D" uid="uid://c7wparfipsqpd" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_000.png" id="1_27cb7"]
 [ext_resource type="Script" uid="uid://mcxylr0jle8d" path="res://Scripts/Characters/Player/Player.cs" id="1_eiaiy"]
@@ -66,15 +66,31 @@
 [ext_resource type="Texture2D" uid="uid://dsk7wjvxl83v1" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_009.png" id="59_gfg6c"]
 [ext_resource type="Texture2D" uid="uid://bc6nsgf11uo3o" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_010.png" id="60_en5ka"]
 [ext_resource type="Texture2D" uid="uid://vaw0oedrie8c" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_011.png" id="61_1v4lm"]
+[ext_resource type="Texture2D" uid="uid://c4lbxkqgac2eo" path="res://Assets/Sprites/Characters/Player/Dying/Dying_000.png" id="63_x8se3"]
+[ext_resource type="Texture2D" uid="uid://csk7dp0j8yf7t" path="res://Assets/Sprites/Characters/Player/Dying/Dying_001.png" id="64_f4hmr"]
+[ext_resource type="Texture2D" uid="uid://df8krge0rdj5i" path="res://Assets/Sprites/Characters/Player/Dying/Dying_002.png" id="65_0lsgw"]
 [ext_resource type="Script" uid="uid://da1ckchfn4lak" path="res://Scripts/Characters/Player/PlayerAttackState.cs" id="66_on6jm"]
+[ext_resource type="Texture2D" uid="uid://ipcl1r1kx4dg" path="res://Assets/Sprites/Characters/Player/Dying/Dying_003.png" id="66_oslfk"]
+[ext_resource type="Texture2D" uid="uid://bgltqnklfn18t" path="res://Assets/Sprites/Characters/Player/Dying/Dying_004.png" id="67_8nlno"]
+[ext_resource type="Texture2D" uid="uid://x2gsqhngei3n" path="res://Assets/Sprites/Characters/Player/Dying/Dying_005.png" id="68_gtnqr"]
+[ext_resource type="Texture2D" uid="uid://c3c1ot0gt6jg4" path="res://Assets/Sprites/Characters/Player/Dying/Dying_006.png" id="69_si63r"]
+[ext_resource type="Texture2D" uid="uid://bv3m6klekna6p" path="res://Assets/Sprites/Characters/Player/Dying/Dying_007.png" id="70_cmja1"]
+[ext_resource type="Texture2D" uid="uid://be6vma5pvicxn" path="res://Assets/Sprites/Characters/Player/Dying/Dying_008.png" id="71_bikm2"]
+[ext_resource type="Texture2D" uid="uid://b3whvr2e4cwdt" path="res://Assets/Sprites/Characters/Player/Dying/Dying_009.png" id="72_u0fy1"]
+[ext_resource type="Texture2D" uid="uid://cxgxucb2l11u1" path="res://Assets/Sprites/Characters/Player/Dying/Dying_010.png" id="73_wxr8p"]
+[ext_resource type="Texture2D" uid="uid://cfmb0t440so4r" path="res://Assets/Sprites/Characters/Player/Dying/Dying_011.png" id="74_gtrgg"]
+[ext_resource type="Texture2D" uid="uid://gytnmskunpgc" path="res://Assets/Sprites/Characters/Player/Dying/Dying_012.png" id="75_sqdh8"]
+[ext_resource type="Texture2D" uid="uid://bxuf2ycl817xa" path="res://Assets/Sprites/Characters/Player/Dying/Dying_013.png" id="76_eau25"]
+[ext_resource type="Texture2D" uid="uid://cf3wq3scuvpk1" path="res://Assets/Sprites/Characters/Player/Dying/Dying_014.png" id="77_rb60l"]
+[ext_resource type="Script" uid="uid://c7nhqcr2d3j2f" path="res://Scripts/Characters/Player/PlayerDeathState.cs" id="83_f4hmr"]
 
-[sub_resource type="Resource" id="Resource_8bd3e"]
+[sub_resource type="Resource" id="Resource_x8se3"]
 script = ExtResource("2_q6jcb")
 StatType = 0
 StatValue = 15.0
 metadata/_custom_type_script = "uid://db8m3iusrly4o"
 
-[sub_resource type="Resource" id="Resource_q6jcb"]
+[sub_resource type="Resource" id="Resource_f4hmr"]
 script = ExtResource("2_q6jcb")
 StatType = 1
 StatValue = 3.0
@@ -198,6 +214,22 @@ tracks/1/keys = {
 "values": [true, false]
 }
 
+[sub_resource type="Animation" id="Animation_q6jcb"]
+resource_name = "Death"
+step = 0.0666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667, 0.533333, 0.6, 0.666667, 0.733333, 0.8, 0.866667, 0.933333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("63_x8se3"), ExtResource("64_f4hmr"), ExtResource("65_0lsgw"), ExtResource("66_oslfk"), ExtResource("67_8nlno"), ExtResource("68_gtnqr"), ExtResource("69_si63r"), ExtResource("70_cmja1"), ExtResource("71_bikm2"), ExtResource("72_u0fy1"), ExtResource("73_wxr8p"), ExtResource("74_gtrgg"), ExtResource("75_sqdh8"), ExtResource("76_eau25"), ExtResource("77_rb60l")]
+}
+
 [sub_resource type="Animation" id="Animation_lyjr2"]
 resource_name = "idle"
 loop_mode = 1
@@ -276,6 +308,7 @@ _data = {
 &"Attack1": SubResource("Animation_h1onf"),
 &"Attack2": SubResource("Animation_ht3jl"),
 &"Dash": SubResource("Animation_h8opa"),
+&"Death": SubResource("Animation_q6jcb"),
 &"Idle": SubResource("Animation_lyjr2"),
 &"Move": SubResource("Animation_7x37g"),
 &"RESET": SubResource("Animation_27cb7")
@@ -288,15 +321,15 @@ size = Vector3(0.5, 0.765137, 0.5)
 radius = 0.445891
 height = 1.4838
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("AnimPlayerNode", "PlayerSpriteNode", "StateMachineNode", "HurtboxNode", "HurtboxCollisionNode", "HitboxNode", "HitboxCollisionNode")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("AnimPlayerNode", "SpriteNode", "StateMachineNode", "HurtboxNode", "HurtboxCollisionNode", "HitboxNode", "HitboxCollisionNode")]
 collision_layer = 2
 collision_mask = 5
 floor_max_angle = 1.55334
 floor_snap_length = 0.2
 script = ExtResource("1_eiaiy")
-_stats = Array[Object]([SubResource("Resource_8bd3e"), SubResource("Resource_q6jcb")])
+_stats = Array[Object]([SubResource("Resource_x8se3"), SubResource("Resource_f4hmr")])
 AnimPlayerNode = NodePath("AnimationPlayer")
-PlayerSpriteNode = NodePath("Sprite3D")
+SpriteNode = NodePath("Sprite3D")
 StateMachineNode = NodePath("StateMachine")
 HurtboxNode = NodePath("PlayerHurtbox")
 HurtboxCollisionNode = NodePath("PlayerHurtbox/HurtboxShape3D")
@@ -318,7 +351,7 @@ libraries = {
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("_currentState", "_states") instance=ExtResource("38_gs6v2")]
 _currentState = NodePath("IdleState")
-_states = [NodePath("IdleState"), NodePath("MoveState"), NodePath("DashState"), NodePath("AttackState")]
+_states = [NodePath("IdleState"), NodePath("MoveState"), NodePath("DashState"), NodePath("AttackState"), NodePath("DeathState")]
 
 [node name="IdleState" type="Node" parent="StateMachine"]
 script = ExtResource("32_cflke")
@@ -339,6 +372,9 @@ script = ExtResource("66_on6jm")
 _comboTimerNode = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="StateMachine/AttackState"]
+
+[node name="DeathState" type="Node" parent="StateMachine"]
+script = ExtResource("83_f4hmr")
 
 [node name="PlayerHitbox" type="Area3D" parent="."]
 collision_layer = 16

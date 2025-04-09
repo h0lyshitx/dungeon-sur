@@ -1,6 +1,6 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPG DEMO", "RPG DEMO.csproj", "{B409BA9B-989A-47F1-BCF4-943FAEB6E07D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DungeonSurvival", "DungeonSurvival.csproj", "{B409BA9B-989A-47F1-BCF4-943FAEB6E07D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

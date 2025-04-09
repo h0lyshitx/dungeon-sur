@@ -1,7 +1,7 @@
+using DUNSUR.Scripts.General;
 using Godot;
-using RPGDEMO.Scripts.General;
 
-namespace RPGDEMO.Scripts.Characters.Player;
+namespace DUNSUR.Scripts.Characters.Player;
 
 public partial class PlayerAttackState : PlayerState
 {
@@ -11,9 +11,11 @@ public partial class PlayerAttackState : PlayerState
     
     protected override void EnterState()
     {
+        CharacterNode.Velocity = new Vector3(CharacterNode.Direction.X, 0, CharacterNode.Direction.Y);
         CharacterNode.AnimPlayerNode.Play(GameConstants.ANIM_ATTACK + _comboCounter);
         CharacterNode.AnimPlayerNode.AnimationFinished += HandleAnimationFinished;
     }
+    
     
     protected override void ExitState()
     {
@@ -25,6 +27,7 @@ public partial class PlayerAttackState : PlayerState
     {
         base._Ready();
         _comboTimerNode.Timeout += () => _comboCounter = 1;
+        
     }
 
     private void HandleAnimationFinished(StringName animname)
@@ -36,7 +39,7 @@ public partial class PlayerAttackState : PlayerState
     
     private void PerformAttack()
     {
-        Vector3 newPosition = CharacterNode.PlayerSpriteNode.FlipH
+        Vector3 newPosition = CharacterNode.SpriteNode.FlipH
             ? Vector3.Left
             : Vector3.Right;
         float distanceMultiplier = 0.75f;

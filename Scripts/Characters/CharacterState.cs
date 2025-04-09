@@ -1,7 +1,7 @@
+using DUNSUR.Scripts.General;
 using Godot;
-using RPGDEMO.Scripts.General;
 
-namespace RPGDEMO.Scripts.Characters;
+namespace DUNSUR.Scripts.Characters;
 
 public abstract partial class CharacterState : Node
 {

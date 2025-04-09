@@ -1,4 +1,4 @@
-namespace RPGDEMO.Scripts.Resources;
+namespace DUNSUR.Scripts.Resources;
 
 public enum Stat
 {

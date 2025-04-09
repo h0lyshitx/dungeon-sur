@@ -1,8 +1,8 @@
-using Godot;
 using System.Linq;
-using RPGDEMO.Scripts.General;
+using DUNSUR.Scripts.General;
+using Godot;
 
-namespace RPGDEMO.Scripts.Characters.Enemy;
+namespace DUNSUR.Scripts.Characters.Enemy;
 
 public partial class EnemyChaseState : EnemyState
 {
@@ -16,8 +16,6 @@ public partial class EnemyChaseState : EnemyState
         CharacterNode.AttackAreaNode.BodyEntered += HandleAttackAreaBodyEntered;
         CharacterNode.ChaseAreaNode.BodyExited += HandleChaseAreaBodyExited;
     }
-
-
 
     protected override void ExitState()
     {

@@ -1,7 +1,7 @@
+using DUNSUR.Scripts.General;
 using Godot;
-using RPGDEMO.Scripts.General;
 
-namespace RPGDEMO.Scripts.Characters.Enemy;
+namespace DUNSUR.Scripts.Characters.Enemy;
 
 public partial class EnemyPatrolState : EnemyState
 {

@@ -1,15 +1,15 @@
-using Godot;
-using RPGDEMO.Scripts.Resources;
 using System.Linq;
+using DUNSUR.Scripts.Resources;
+using Godot;
 
-namespace RPGDEMO.Scripts.Characters;
+namespace DUNSUR.Scripts.Characters;
 
 public abstract partial class Character : CharacterBody3D
 {
     [Export] private StatResource[] _stats;
     [ExportGroup("Required Nodes")]
     [Export] public AnimationPlayer AnimPlayerNode { get; private set; }
-    [Export] public Sprite3D PlayerSpriteNode { get; private set; }
+    [Export] public Sprite3D SpriteNode { get; private set; }
     [Export] public StateMachine StateMachineNode { get; private set; }
     [Export] public Area3D HurtboxNode { get; private set; }
     [Export] public CollisionShape3D HurtboxCollisionNode { get; private set; }
@@ -35,7 +35,7 @@ public abstract partial class Character : CharacterBody3D
         }
 
         bool isMovingLeft = Velocity.X < 0;
-        PlayerSpriteNode.FlipH = isMovingLeft;
+        SpriteNode.FlipH = isMovingLeft;
     }
 
     public override void _Ready()
@@ -52,7 +52,7 @@ public abstract partial class Character : CharacterBody3D
         GD.Print($"{health.StatValue} HP");
     }
 
-    private StatResource GetStatResource(Stat stat)
+    public StatResource GetStatResource(Stat stat)
     {
         return _stats.Where((element) => element.StatType == stat).FirstOrDefault();
 

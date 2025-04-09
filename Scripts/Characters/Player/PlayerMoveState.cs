@@ -1,8 +1,7 @@
-using System;
+using DUNSUR.Scripts.General;
 using Godot;
-using RPGDEMO.Scripts.General;
 
-namespace RPGDEMO.Scripts.Characters.Player;
+namespace DUNSUR.Scripts.Characters.Player;
 
 public partial class PlayerMoveState : PlayerState
 {
@@ -21,8 +20,8 @@ public partial class PlayerMoveState : PlayerState
         CharacterNode.Velocity = new(CharacterNode.Direction.X, 0, CharacterNode.Direction.Y);
         CharacterNode.Velocity *= Movespeed;
 
-        // CharacterNode.MoveAndSlide(); -> this is done in Player class
         CharacterNode.Flip();
+        
     }
 
     public override void _Input(InputEvent @event)

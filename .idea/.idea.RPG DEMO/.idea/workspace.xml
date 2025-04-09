@@ -4,18 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49ed11e9-432b-4d86-8d9c-b1017f5ddc38" name="Changes" comment="accidentally override _Ready() method so it's removed">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RPG DEMO/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RPG DEMO/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="49ed11e9-432b-4d86-8d9c-b1017f5ddc38" name="Changes" comment="adding and removing hitboxes &amp; hurtboxes when condition met/expired.">
+      <change afterPath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyDeathState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RPG DEMO/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RPG DEMO/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RPG DEMO/.idea/libraries/GdSdk_Master.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RPG DEMO/.idea/projectSettingsUpdater.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RPG DEMO/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RPG DEMO/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG DEMO.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DungeonSurvival.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG DEMO.sln" beforeDir="false" afterPath="$PROJECT_DIR$/DungeonSurvival.sln" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/Characters/Enemy/enemy_knight.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Characters/Enemy/enemy_knight.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/Characters/Player/player.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Characters/Player/player.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/Characters/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Characters/CharacterState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/CharacterState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyAttackState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyChaseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyChaseState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyIdleState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyKnight.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyKnight.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyPatrolState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyPatrolState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyReturnState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyReturnState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Characters/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Player/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/Characters/Player/PlayerAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Player/PlayerAttackState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/Characters/Player/PlayerDashState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Player/PlayerDashState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Characters/Player/PlayerIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Player/PlayerIdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Characters/Player/PlayerMoveState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Player/PlayerMoveState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Characters/Player/PlayerState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/Player/PlayerState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/Characters/StateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Characters/StateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/General/GameConstants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/General/GameConstants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Levels/Main.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Levels/Main.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Resources/Stat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Resources/Stat.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/Resources/StatResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Resources/StatResource.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
     </list>
@@ -33,25 +52,21 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/69e3acf0074a4ef8afaea275d4055b96522800/c5/626a7464/Vector3.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Characters/Character.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///run/media/smoocher/gotta_go_fast/Godot Engine/Projects/rpg_demo/Scripts/Characters/Character.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Characters/CharacterState.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///run/media/smoocher/gotta_go_fast/Godot Engine/Projects/rpg_demo/Scripts/Characters/Enemy/EnemyAttackState.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///run/media/smoocher/gotta_go_fast/Godot Engine/Projects/rpg_demo/Scripts/Characters/Enemy/EnemyChaseState.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///run/media/smoocher/gotta_go_fast/Godot Engine/Projects/rpg_demo/Scripts/Characters/Enemy/EnemyIdleState.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyAttackState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyChaseState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyDeathState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyIdleState.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///run/media/smoocher/gotta_go_fast/Godot Engine/Projects/rpg_demo/Scripts/Characters/Enemy/EnemyKnight.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyKnight.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyPatrolState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyReturnState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Characters/Enemy/EnemyState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Characters/Player/Player.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///run/media/smoocher/gotta_go_fast/Godot Engine/Projects/rpg_demo/Scripts/Characters/Player/Player.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///run/media/smoocher/gotta_go_fast/Godot Engine/Projects/rpg_demo/Scripts/Characters/Player/PlayerAttackState.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///run/media/smoocher/gotta_go_fast/Godot Engine/Projects/rpg_demo/Scripts/Characters/Player/PlayerDashState.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///run/media/smoocher/gotta_go_fast/Godot Engine/Projects/rpg_demo/Scripts/Characters/Player/PlayerDashState.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Characters/Player/PlayerAttackState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Characters/Player/PlayerDashState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Characters/Player/PlayerState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Characters/StateMachine.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///run/media/smoocher/gotta_go_fast/Godot Engine/Projects/rpg_demo/Scripts/General/GameConstants.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/General/GameConstants.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -65,25 +80,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Executable.Editor.executor": "Run",
-    ".NET Executable.Player.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "XThreadsFramesViewSplitterKey": "0.36399218",
-    "com.codeium.enabled": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/run/media/smoocher/gotta_go_fast/Godot Engine/Projects/rpg_demo",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Executable.Editor.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Executable.Player.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.36399218&quot;,
+    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/run/media/smoocher/gotta_go_fast/Godot Engine/Projects/rpg_demo&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Executable.Player">
     <configuration name="Player GDScript" type="GDSCRIPT_DEBUG_RUN_CONFIGURATION" factoryName="GdScriptRunFactory" show_console_on_std_err="false" show_console_on_std_out="false" port="6006">
       <option name="address" value="127.0.0.1" />
@@ -147,7 +162,9 @@
       <workItem from="1743491141772" duration="9056000" />
       <workItem from="1743689711371" duration="5446000" />
       <workItem from="1743759596503" duration="4039000" />
-      <workItem from="1743903339552" duration="2466000" />
+      <workItem from="1743903339552" duration="14895000" />
+      <workItem from="1744117548052" duration="209000" />
+      <workItem from="1744117778925" duration="144000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -245,7 +262,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743903731236</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="adding and removing hitboxes &amp; hurtboxes when condition met/expired.">
+      <option name="closed" value="true" />
+      <created>1743906254358</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1743906254358</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,7 +295,8 @@
     <MESSAGE value="add stats to character class" />
     <MESSAGE value="add RESET track constant" />
     <MESSAGE value="accidentally override _Ready() method so it's removed" />
-    <option name="LAST_COMMIT_MESSAGE" value="accidentally override _Ready() method so it's removed" />
+    <MESSAGE value="adding and removing hitboxes &amp; hurtboxes when condition met/expired." />
+    <option name="LAST_COMMIT_MESSAGE" value="adding and removing hitboxes &amp; hurtboxes when condition met/expired." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
