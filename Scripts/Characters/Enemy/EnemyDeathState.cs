@@ -14,6 +14,5 @@ public partial class EnemyDeathState : EnemyState
     private void HandleAnimationFinished(StringName animname)
     {
         CharacterNode.PathNode.QueueFree();
-        // solve the attack timeout problem where the enemy will attack the player even after death, right before they disappear
     }
 }

@@ -33,8 +33,5 @@ public abstract partial class CharacterState : Node
 
     protected virtual void EnterState() { }
 
-    protected virtual void ExitState()
-    {
-    }
-    
+    protected virtual void ExitState() { }
 }

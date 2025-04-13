@@ -19,6 +19,7 @@ public partial class EnemyAttackState : EnemyState
     protected override void ExitState()
     {
         CharacterNode.AnimPlayerNode.AnimationFinished -= HandleAnimationFinished;
+        _attackTimerNode.Stop();
     }
 
     public override void _Ready()
