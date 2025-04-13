@@ -1,13 +1,15 @@
 using System.Linq;
-using DUNSUR.Scripts.General;
+using DungeonSurvival.Scripts.General;
 using Godot;
 
-namespace DUNSUR.Scripts.Characters.Enemy;
+namespace DungeonSurvival.Scripts.Characters.Enemy;
 
 public partial class EnemyAttackState : EnemyState
 {
-    [Export] private Timer _attackTimerNode;
+    [Export]
+    private Timer _attackTimerNode;
     private Vector3 _targetPosition;
+
     protected override void EnterState()
     {
         PerformAttack();
@@ -30,18 +32,21 @@ public partial class EnemyAttackState : EnemyState
         CharacterNode.HitboxCollisionNode.SetDeferred("disabled", true);
         _attackTimerNode.Start();
     }
+
     private void HandleAttackTimeout()
     {
         PerformAttack();
     }
 
-    private void PerformAttack() 
+    private void PerformAttack()
     {
         Node3D target = CharacterNode.AttackAreaNode.GetOverlappingBodies().FirstOrDefault();
 
         if (target == null)
         {
-            Node3D chaseTarget = CharacterNode.ChaseAreaNode.GetOverlappingBodies().FirstOrDefault();
+            Node3D chaseTarget = CharacterNode
+                .ChaseAreaNode.GetOverlappingBodies()
+                .FirstOrDefault();
             if (chaseTarget == null)
             {
                 CharacterNode.StateMachineNode.SwitchState<EnemyReturnState>();

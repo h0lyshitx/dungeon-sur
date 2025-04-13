@@ -1,7 +1,7 @@
-using DUNSUR.Scripts.Resources;
+using DungeonSurvival.Scripts.Resources;
 using Godot;
 
-namespace DUNSUR.Scripts.Characters.Enemy;
+namespace DungeonSurvival.Scripts.Characters.Enemy;
 
 public abstract partial class EnemyState : CharacterState
 {

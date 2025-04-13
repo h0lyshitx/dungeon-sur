@@ -1,4 +1,4 @@
-namespace DUNSUR.Scripts.Resources;
+namespace DungeonSurvival.Scripts.Resources;
 
 public enum Stat
 {

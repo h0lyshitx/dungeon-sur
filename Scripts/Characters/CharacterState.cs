@@ -1,7 +1,7 @@
-using DUNSUR.Scripts.General;
+using DungeonSurvival.Scripts.General;
 using Godot;
 
-namespace DUNSUR.Scripts.Characters;
+namespace DungeonSurvival.Scripts.Characters;
 
 public abstract partial class CharacterState : Node
 {

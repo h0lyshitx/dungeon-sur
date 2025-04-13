@@ -1,9 +1,10 @@
-[gd_scene load_steps=97 format=3 uid="uid://1ptpmqcr1dux"]
+[gd_scene load_steps=96 format=3 uid="uid://1ptpmqcr1dux"]
 
 [ext_resource type="Texture2D" uid="uid://c7wparfipsqpd" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_000.png" id="1_27cb7"]
 [ext_resource type="Script" uid="uid://mcxylr0jle8d" path="res://Scripts/Characters/Player/Player.cs" id="1_eiaiy"]
+[ext_resource type="Resource" uid="uid://cqmdsrgulijps" path="res://Resources/player_health_stat.tres" id="2_0lsgw"]
 [ext_resource type="Texture2D" uid="uid://do80s5du6ko4w" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_001.png" id="2_7x37g"]
-[ext_resource type="Script" uid="uid://db8m3iusrly4o" path="res://Scripts/Resources/StatResource.cs" id="2_q6jcb"]
+[ext_resource type="Resource" uid="uid://c6dvky2m3f1ue" path="res://Resources/player_str_stat.tres" id="3_oslfk"]
 [ext_resource type="Texture2D" uid="uid://bmrhnwdkm10wf" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_002.png" id="3_pr2lv"]
 [ext_resource type="Texture2D" uid="uid://dqscpwlk8gh62" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_003.png" id="4_cvakg"]
 [ext_resource type="Texture2D" uid="uid://ck5v0b6dh3tmu" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_004.png" id="5_othne"]
@@ -83,18 +84,6 @@
 [ext_resource type="Texture2D" uid="uid://bxuf2ycl817xa" path="res://Assets/Sprites/Characters/Player/Dying/Dying_013.png" id="76_eau25"]
 [ext_resource type="Texture2D" uid="uid://cf3wq3scuvpk1" path="res://Assets/Sprites/Characters/Player/Dying/Dying_014.png" id="77_rb60l"]
 [ext_resource type="Script" uid="uid://c7nhqcr2d3j2f" path="res://Scripts/Characters/Player/PlayerDeathState.cs" id="83_f4hmr"]
-
-[sub_resource type="Resource" id="Resource_x8se3"]
-script = ExtResource("2_q6jcb")
-StatType = 0
-StatValue = 15.0
-metadata/_custom_type_script = "uid://db8m3iusrly4o"
-
-[sub_resource type="Resource" id="Resource_f4hmr"]
-script = ExtResource("2_q6jcb")
-StatType = 1
-StatValue = 3.0
-metadata/_custom_type_script = "uid://db8m3iusrly4o"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uvgfe"]
 radius = 0.445891
@@ -208,7 +197,7 @@ tracks/1/path = NodePath("PlayerHurtbox/HurtboxShape3D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.833333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -324,10 +313,11 @@ height = 1.4838
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("AnimPlayerNode", "SpriteNode", "StateMachineNode", "HurtboxNode", "HurtboxCollisionNode", "HitboxNode", "HitboxCollisionNode")]
 collision_layer = 2
 collision_mask = 5
+floor_block_on_wall = false
 floor_max_angle = 1.55334
 floor_snap_length = 0.2
 script = ExtResource("1_eiaiy")
-_stats = Array[Object]([SubResource("Resource_x8se3"), SubResource("Resource_f4hmr")])
+_stats = Array[Object]([ExtResource("2_0lsgw"), ExtResource("3_oslfk")])
 AnimPlayerNode = NodePath("AnimationPlayer")
 SpriteNode = NodePath("Sprite3D")
 StateMachineNode = NodePath("StateMachine")

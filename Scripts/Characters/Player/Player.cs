@@ -1,19 +1,18 @@
-using DUNSUR.Scripts.General;
+using DungeonSurvival.Scripts.General;
 using Godot;
 
-namespace DUNSUR.Scripts.Characters.Player;
+namespace DungeonSurvival.Scripts.Characters.Player;
 
 public partial class Player : Character
 {
-    private const float Gravity = 1500f;
+    private const float GRAVITY = 1000f;
 
-    
     public override void _PhysicsProcess(double delta)
     {
         Vector3 velocity = Velocity;
         if (!IsOnFloor())
         {
-            velocity.Y -= Gravity * (float)delta;
+            velocity.Y -= GRAVITY * (float)delta;
         }
         Velocity = velocity;
         MoveAndSlide();

@@ -1,8 +1,8 @@
 using System.Linq;
-using DUNSUR.Scripts.General;
+using DungeonSurvival.Scripts.General;
 using Godot;
 
-namespace DUNSUR.Scripts.Characters.Enemy;
+namespace DungeonSurvival.Scripts.Characters.Enemy;
 
 public partial class EnemyChaseState : EnemyState
 {

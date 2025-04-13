@@ -1,8 +1,8 @@
-using DUNSUR.Scripts.General;
-using DUNSUR.Scripts.Resources;
+using DungeonSurvival.Scripts.General;
+using DungeonSurvival.Scripts.Resources;
 using Godot;
 
-namespace DUNSUR.Scripts.Characters.Player;
+namespace DungeonSurvival.Scripts.Characters.Player;
 
 public abstract partial class PlayerState : CharacterState
 {
@@ -14,7 +14,7 @@ public abstract partial class PlayerState : CharacterState
 
     private void HandleZeroHealth()
     {
-        CharacterNode.StateMachineNode.SwitchState<PlayerDeathState>(); 
+        CharacterNode.StateMachineNode.SwitchState<DungeonSurvival.Scripts.Characters.Player.PlayerDeathState>(); 
     }
 
     protected void CheckForAttackInput()

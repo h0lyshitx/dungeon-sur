@@ -1,7 +1,7 @@
-using DUNSUR.Scripts.General;
+using DungeonSurvival.Scripts.General;
 using Godot;
 
-namespace DUNSUR.Scripts.Characters.Player;
+namespace DungeonSurvival.Scripts.Characters.Player;
 
 public partial class PlayerDashState : PlayerState
 {

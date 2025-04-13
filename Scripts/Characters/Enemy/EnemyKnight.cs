@@ -1,4 +1,4 @@
-namespace DUNSUR.Scripts.Characters.Enemy;
+namespace DungeonSurvival.Scripts.Characters.Enemy;
 
 public partial class EnemyKnight : Character
 {

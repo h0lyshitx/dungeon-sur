@@ -1,4 +1,4 @@
-namespace DUNSUR.Scripts.General;
+namespace DungeonSurvival.Scripts.General;
 
 public class GameConstants
 {

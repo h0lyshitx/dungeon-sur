@@ -1,6 +1,6 @@
-using DUNSUR.Scripts.General;
+using DungeonSurvival.Scripts.General;
 
-namespace DUNSUR.Scripts.Characters.Enemy;
+namespace DungeonSurvival.Scripts.Characters.Enemy;
 
 public partial class EnemyIdleState : EnemyState
 {

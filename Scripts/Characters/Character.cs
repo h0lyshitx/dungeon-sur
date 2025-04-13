@@ -1,8 +1,8 @@
 using System.Linq;
-using DUNSUR.Scripts.Resources;
+using DungeonSurvival.Scripts.Resources;
 using Godot;
 
-namespace DUNSUR.Scripts.Characters;
+namespace DungeonSurvival.Scripts.Characters;
 
 public abstract partial class Character : CharacterBody3D
 {
