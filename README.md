@@ -4,8 +4,9 @@ Goal: Defeats all enemies.
 
 Control:
 - Shift: Dash (has iframe to dodge enemy attack)
-- LMB: combo attack (has 2 combo)
-- ESC: pause
+- LMB: Combo attack (has 2 combo)
+- ESC: Pause
+- WASD: Move Up/Left/Down/Right
 
 ![player attack](https://github.com/h0lyshitx/dungeon-sur/blob/master/README_files/player_attack.gif)
 
